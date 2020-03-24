@@ -97,7 +97,7 @@ public class MemberManager {
 	}
 
 	public void deleteAll() {
-		m[ctn] = 
+		
 	}
 
 	public void printAllMember() {
@@ -107,7 +107,13 @@ public class MemberManager {
 	}
 
 	public void printOne(Member m) {
-		System.out.println("회원의 아이디 검색결과는 : " + m.information());
+		System.out.println("아이디는 : " + m.getUserId());
+		System.out.println("비밀번호는 : " + m.getUserPwd());
+		System.out.println("이름은 : " + m.getUserName());
+		System.out.println("나이는 : " + m.getAge());
+		System.out.println("성별은 : " + m.getGender());
+		System.out.println("이메일은 : " + m.getEmail());
+		
 	}
 }
 
