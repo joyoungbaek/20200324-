@@ -71,9 +71,19 @@ public class MemberManager {
 	public void updatePwd() {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
-		System.out.println("변경할 비밀번호를 입력하세요 : ");
-		String Pwd = sc.next();
-		m[ctn].setUserPwd(Pwd);
+		int sw = 0;
+		int index = 0;
+
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserId().equals(userId)) {
+				sw = 1;
+				index = i;
+				break;
+
+			} else {
+				sw = 0;
+			}
+		}
 	}
 
 	public void updateName() {
@@ -97,7 +107,7 @@ public class MemberManager {
 	}
 
 	public void deleteAll() {
-		
+
 	}
 
 	public void printAllMember() {
@@ -113,7 +123,7 @@ public class MemberManager {
 		System.out.println("나이는 : " + m.getAge());
 		System.out.println("성별은 : " + m.getGender());
 		System.out.println("이메일은 : " + m.getEmail());
-		
+
 	}
 }
 
