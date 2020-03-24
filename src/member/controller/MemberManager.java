@@ -71,25 +71,88 @@ public class MemberManager {
 	public void updatePwd() {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
-		System.out.println("변경할 비밀번호를 입력하세요 : ");
-		String Pwd = sc.next();
-		m[ctn].setUserPwd(Pwd);
+		int sw = 0;
+		int index = 0;
+
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserId().equals(userId)) {
+				sw = 1;
+				index = i;
+				break;
+
+			} else {
+				sw = 0;
+			}
+		}
+		
+		if(sw == 1) {
+			System.out.println("변경하실 비밀번호를 입력해주세요 : ");
+			String userPwd = sc.next();
+			m[index].setUserPwd(userPwd);
+			System.out.println("패스워드가 수정이 완료되었습니다.");
+			return;
+		} else {
+			System.out.println("수정할 회원이 존재하지 않습니다.");
+			return;
+		}
 	}
 
 	public void updateName() {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
-		System.out.println("변경할 이름를 입력하세요 : ");
-		String Name = sc.next();
-		m[ctn].setUserName(Name);
+		int sw = 0;
+		int index = 0;
+
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserId().equals(userId)) {
+				sw = 1;
+				index = i;
+				break;
+
+			} else {
+				sw = 0;
+			}
+		}
+		
+		if(sw == 1) {
+			System.out.println("변경하실 이름을 입력해주세요 : ");
+			String userName = sc.next();
+			m[index].setUserName(userName);
+			System.out.println("이름 수정이 완료되었습니다.");
+			return;
+		} else {
+			System.out.println("수정할 회원이 존재하지 않습니다.");
+			return;
+		}
 	}
 
 	public void updateEmail() {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
-		System.out.println("변경할 이메일을 입력하세요 : ");
-		String Email = sc.next();
-		m[ctn].setEmail(Email);
+		int sw = 0;
+		int index = 0;
+
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserId().equals(userId)) {
+				sw = 1;
+				index = i;
+				break;
+
+			} else {
+				sw = 0;
+			}
+		}
+		
+		if(sw == 1) {
+			System.out.println("변경하실 이메일을 입력해주세요 : ");
+			String Email = sc.next();
+			m[index].setEmail(Email);
+			System.out.println("이메일 수정이 완료되었습니다.");
+			return;
+		} else {
+			System.out.println("수정할 회원이 존재하지 않습니다.");
+			return;
+		}
 	}
 
 	public void deleteOne() {
@@ -97,7 +160,7 @@ public class MemberManager {
 	}
 
 	public void deleteAll() {
-		m[ctn] = 
+
 	}
 
 	public void printAllMember() {
@@ -107,7 +170,13 @@ public class MemberManager {
 	}
 
 	public void printOne(Member m) {
-		System.out.println("회원의 아이디 검색결과는 : " + m.information());
+		System.out.println("아이디는 : " + m.getUserId());
+		System.out.println("비밀번호는 : " + m.getUserPwd());
+		System.out.println("이름은 : " + m.getUserName());
+		System.out.println("나이는 : " + m.getAge());
+		System.out.println("성별은 : " + m.getGender());
+		System.out.println("이메일은 : " + m.getEmail());
+
 	}
 }
 
